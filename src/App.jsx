@@ -20,7 +20,6 @@ function App() {
 					  <Route path="Assignments" element={<AssignmentsPage />} />
                       <Route path="Profile" element={<ProfilePage />} />
 				  </Route>
-				  <Route path="Student" element={<Student/>} /> 
 			</Routes>
 		
 	);
