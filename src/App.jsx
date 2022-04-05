@@ -14,7 +14,7 @@ function App() {
 			<Routes>
 				<Route path="Quiz" element={<QuizPage />} />
 				<Route path="*" element={<NotFound />} />
-				<Route Path="/" element={<Navigate to= "/Lectures" />} />
+				<Route path="/" element={<Navigate to="/Lectures" />} />
 				  <Route path="/" element={<MainLayout />}>
 					  <Route path="Lectures" element={<LecturesPage />} />
 					  <Route path="Assignments" element={<AssignmentsPage />} />
