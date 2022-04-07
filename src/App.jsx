@@ -7,6 +7,7 @@ import AssignmentsPage from './AssignmentsPage';
 import { Navigate, Routes, Route } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
 import NotFound from './NotFound';
+import StudentsPage from './StudentsPage';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Route path="/" element={<Navigate to="/Lectures" />} />
 				  <Route path="/" element={<MainLayout />}>
 					  <Route path="Lectures" element={<LecturesPage />} />
+					  <Route path="Students" element={<StudentsPage />} />
 					  <Route path="Assignments" element={<AssignmentsPage />} />
                       <Route path="Profile" element={<ProfilePage />} />
 				  </Route>

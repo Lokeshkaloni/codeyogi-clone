@@ -14,6 +14,9 @@ function SideBar(props) {
         <Link className="text-white hover:bg-gray-700 rounded-md mt-2 w-full px-2" to="/Quiz">
 					Quiz
 				</Link>
+				<Link className="text-white hover:bg-gray-700 rounded-md mt-2 w-full px-2" to="/Students">
+					Students
+				</Link>
                 <span className= "grow"></span>
                 <Link className="text-white hover:bg-gray-700 rounded-md mt-2 w-full px-2" to="/Profile">
 					Profile
