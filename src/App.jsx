@@ -8,6 +8,7 @@ import { Navigate, Routes, Route } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
 import NotFound from './NotFound';
 import StudentsPage from './StudentsPage';
+import AssignmentDetail from './AssignmentDetail';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					  <Route path="Students" element={<StudentsPage />} />
 					  <Route path="Assignments" element={<AssignmentsPage />} />
                       <Route path="Profile" element={<ProfilePage />} />
+					  <Route path="Assignments/:id/Details" element={<AssignmentDetail />} />
 				  </Route>
 			</Routes>
 		

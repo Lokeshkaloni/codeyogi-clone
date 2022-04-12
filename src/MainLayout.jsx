@@ -8,7 +8,7 @@ function MainLayout(){
 			<div>
 				<SideBar />
 			</div>
-			<div className= "grow p-2 flex items-stretch bg-gray-100">
+			<div className= "grow p-2 flex bg-gray-100">
         <Outlet/>
 			</div>
 		</div>
