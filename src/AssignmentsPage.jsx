@@ -1,15 +1,12 @@
 import { React, useState, useEffect } from "react";
 import AssignmentsRow from "./AssignmentsRow";
-import axios from "axios";
+import { getAssignments } from "./Api";
 
 function AssignmentsPage() {
   const [assignments, setAssignments] = useState([]);
 
   useEffect(() => {
-    const token = axios.get("https://api.codeyogi.io/batches/1/assignments", {
-      withCredentials: true,
-    });
-
+    const token = getAssignments();
     token.then((response) => {
       setAssignments(response.data);
     });

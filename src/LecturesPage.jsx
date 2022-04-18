@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { getLectures } from "./Api";
 
 import LectureDetail from "./LectureDetail";
 
@@ -7,9 +7,7 @@ function LecturesPage(props) {
   const [lectures, setLectures] = useState([]);
 
   useEffect(() => {
-    const token = axios.get("https://api.codeyogi.io/batches/1/sessions", {
-      withCredentials: true,
-    });
+    const token = getLectures();
 
     token.then((response) => {
       setLectures(response.data);
