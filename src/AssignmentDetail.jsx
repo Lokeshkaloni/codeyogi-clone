@@ -9,7 +9,7 @@ import axios from "axios";
 function AssignmentDetail() {
   const [showSubmissionForm, setSubmissionForm] = useState(false);
   const data = useParams();
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(undefined);
 
   useEffect(() => {
     const token = axios.get(`https://api.codeyogi.io/assignments/${data.id}`, {
@@ -20,6 +20,7 @@ function AssignmentDetail() {
       setDetails(response.data);
     });
   }, []);
+  if (!details) return <></>;
 
   return (
     <div className="bg-white h-fit flex flex-col px-8 py-6 w-full mt-14 mx-10 rounded-md">
@@ -77,7 +78,7 @@ function AssignmentDetail() {
           </svg>
           <a
             target="_blank"
-            // href={details.submissions[0].submission_link}
+            href={details.submissions[0].submission_link}
             className="text-indigo-500 underline font-bold"
           >
             See your submission
