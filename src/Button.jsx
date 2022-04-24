@@ -14,7 +14,7 @@ function Button(props) {
     <button
       disabled={props.disabled}
       onClick={props.onClick}
-      className={"ml-4 px-6 py-2 " + themeClass + "  " + borderClass}
+      className={"px-6 py-2 " + themeClass + "  " + borderClass}
     >
       {props.children}
     </button>

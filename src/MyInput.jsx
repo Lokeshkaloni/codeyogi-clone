@@ -7,6 +7,7 @@ function MyInput(props) {
         value={props.value}
         onChange={props.onChange}
         type="text"
+        autoComplete={props.autoComplete}
         placeholder={props.placeholder}
         className="py-4 px-5 w-full rounded-md border border-indigo-700 bg-gray-100"
       />
