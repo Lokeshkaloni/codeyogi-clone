@@ -9,7 +9,7 @@ function SubmissionForm(props) {
     {
       submissionLink: "",
     },
-    submitAssignment
+    submitAssignment(formData)
   );
 
   const urlValidator = string().url();
@@ -18,7 +18,7 @@ function SubmissionForm(props) {
     ? ""
     : "url is not correct,  please enter valid url !";
 
-  const submitAssignment = () => {
+  const submitAssignment = (formData) => {
     axios.put(
       `https://api.codeyogi.io/assignment/${props.ID}/submit`,
       { submissionLink: formData.submissionLink },
@@ -50,7 +50,7 @@ function SubmissionForm(props) {
           </div>
         </div>
         <div className="">
-          <Button onClick={() => submitAssignment()}>save</Button>
+          <Button>save</Button>
         </div>
       </div>
     </form>
