@@ -5,13 +5,14 @@ import { string } from "yup";
 import { useForm } from "./Myhooks";
 
 function SubmissionForm(props) {
-  const submitAssignment = (formData) => {
+  const submitAssignment = () => {
     axios.put(
       `https://api.codeyogi.io/assignment/${props.ID}/submit`,
       { submissionLink: formData.submissionLink },
       { withCredentials: true }
     );
     props.cancel();
+    console.log(formData.submissionLink, "formdata is this");
   };
 
   const { formData, handleChange, onFormSubmit } = useForm(
