@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import Button from "./Button";
+import DateTimeInput from "./DateTimeInput";
 import MyInput from "./MyInput";
 
 function Profile({ userData }) {
@@ -35,7 +36,7 @@ function Profile({ userData }) {
         </div>
         <div className="flex flex-col">
           <label>Date Of Birth</label>
-          <MyInput name="date_of_birth" />
+          <DateTimeInput name="date_of_birth" />
         </div>
         <div className="flex flex-col">
           <label>device you are using to do your assignments</label>
