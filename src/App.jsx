@@ -12,7 +12,10 @@ import AlertContext from "./AlertContext";
 
 function App() {
   const [alert, setAlert] = useState({});
-  const showAlertData = { alert, setAlert };
+  const removeAlert = () => {
+    setAlert({});
+  };
+  const showAlertData = { alert, setAlert, removeAlert };
 
   return (
     <AlertContext.Provider value={showAlertData}>

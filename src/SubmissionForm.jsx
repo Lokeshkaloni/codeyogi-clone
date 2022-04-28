@@ -6,18 +6,21 @@ import { useForm } from "./Myhooks";
 import AlertContext from "./AlertContext";
 
 function SubmissionForm(props) {
-  const showAlertData = useContext(AlertContext);
+  const { alert, setAlert, removeAlert } = useContext(AlertContext);
   const submitAssignment = () => {
     axios.put(
       `https://api.codeyogi.io/assignment/${props.ID}/submit`,
       { submissionLink: formData.submissionLink },
       { withCredentials: true }
     );
-    showAlertData.setAlert({
+    setAlert({
       message: "assignment submitted",
       type: "success",
     });
     props.cancel();
+    setTimeout(() => {
+      removeAlert();
+    }, 5000);
   };
 
   const { formData, handleChange, onFormSubmit } = useForm(
@@ -56,7 +59,7 @@ function SubmissionForm(props) {
             </div>
           </div>
         </div>
-        <div className="">
+        <div>
           <Button>save</Button>
         </div>
       </div>
