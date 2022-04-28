@@ -1,18 +1,23 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import { string } from "yup";
 import { useForm } from "./Myhooks";
+import AlertContext from "./AlertContext";
 
 function SubmissionForm(props) {
+  const showAlertData = useContext(AlertContext);
   const submitAssignment = () => {
     axios.put(
       `https://api.codeyogi.io/assignment/${props.ID}/submit`,
       { submissionLink: formData.submissionLink },
       { withCredentials: true }
     );
+    showAlertData.setAlert({
+      message: "assignment submitted",
+      type: "success",
+    });
     props.cancel();
-    console.log(formData.submissionLink, "formdata is this");
   };
 
   const { formData, handleChange, onFormSubmit } = useForm(
@@ -27,7 +32,6 @@ function SubmissionForm(props) {
   const urlError = validUrl
     ? ""
     : "url is not correct,  please enter valid url !";
-  console.log(formData.submissionLink);
 
   return (
     <form onSubmit={validUrl && onFormSubmit}>
