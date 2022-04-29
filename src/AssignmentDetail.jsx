@@ -20,7 +20,12 @@ function AssignmentDetail() {
       setDetails(response.data);
     });
   }, []);
+  let buttonText = "Submit";
+
   if (!details) return <></>;
+  if (details.submissions[0].submission_link) {
+    buttonText = "Re-Submit";
+  }
 
   return (
     <div className="bg-white h-fit flex flex-col px-8 py-6 w-full mt-14 mx-10 rounded-md">
@@ -59,7 +64,7 @@ function AssignmentDetail() {
             onClick={() => setSubmissionForm(true)}
             className="text-green-500 font-bold"
           >
-            submit
+            {buttonText}
           </Button>
         </div>
         <div className="flex items-center my-3 w-1/2 space-x-1">

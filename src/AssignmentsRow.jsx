@@ -4,10 +4,24 @@ import Card from "./Card";
 import SubmissionForm from "./SubmissionForm";
 import { DateTime } from "luxon";
 import { useNavigate } from "react-router-dom";
+import CN from "classnames";
 
 function AssignmentsRow({ assignment }) {
   const [showSubmissionForm, setSubmissionForm] = useState(false);
   const navigate = useNavigate();
+
+  let buttonText = "Submit";
+  if (assignment.submissions[0].submission_link) {
+    buttonText = "Re-Submit";
+  }
+  let submitOrNOt = "Not Submitted";
+  if (assignment.submissions[0].submission_link) {
+    submitOrNOt = "Submitted";
+  }
+  let submitOrNOtClass = CN({
+    "text-red-500": submitOrNOt === "Not Submitted",
+    "text-green-500": submitOrNOt === "Submitted",
+  });
 
   return (
     <Card>
@@ -25,11 +39,14 @@ function AssignmentsRow({ assignment }) {
             )
           </span>
         </h1>
-        <span className="text-red-600">
-          due date:
-          {DateTime.fromISO(assignment.due_date).toLocaleString(
-            DateTime.DATE_MED
-          )}
+        <span className="text-red-600 flex justify-between">
+          <h1>
+            due date:
+            {DateTime.fromISO(assignment.due_date).toLocaleString(
+              DateTime.DATE_MED
+            )}
+          </h1>
+          <span className={submitOrNOtClass}>{submitOrNOt}</span>
         </span>
       </div>
       <div className="flex">
@@ -52,7 +69,7 @@ function AssignmentsRow({ assignment }) {
             onClick={() => setSubmissionForm(true)}
             className="text-green-500 font-bold"
           >
-            submit
+            {buttonText}
           </button>
         </div>
         <div className="flex justify-center items-center my-3 w-1/2 space-x-1">

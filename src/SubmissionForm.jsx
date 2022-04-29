@@ -50,6 +50,7 @@ function SubmissionForm(props) {
               name="submissionLink"
               type="text"
               placeholder="Submission Link"
+              required
               className="py-4 px-5 w-full rounded-md border border-indigo-700 bg-gray-100"
             />
             <div className="h-5 w-full">
