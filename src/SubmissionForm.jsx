@@ -14,7 +14,7 @@ function SubmissionForm(props) {
       { withCredentials: true }
     );
     setAlert({
-      message: "assignment submitted",
+      message: "Submission Successful",
       type: "success",
     });
     props.cancel();
@@ -59,9 +59,7 @@ function SubmissionForm(props) {
             </div>
           </div>
         </div>
-        <div>
-          <Button>save</Button>
-        </div>
+        <div>{validUrl && <Button>save</Button>}</div>
       </div>
     </form>
   );
